@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Property Search</title>
+</head>
+<body>
+    <form method="GET" action="https://request-inspector.glitch.me/">
+        <fieldset style="background-color: whitesmoke">
+            <legend style="font-weight: bold; font-size: 2em; color: lightpink">Property Search Form</legend>
+            <div>
+                <label >Property Type:</label><br>
+                <input type="checkbox" name="property-type" value="Condo"> Condo<br>
+                <input type="checkbox" name="property-type" value="Single-family" checked> Single Family<br>
+                <input type="checkbox" name="property-type" value="Apartment"> Apartment<br>
+                <input type="checkbox" name="property-type" value="Townhouse"> Townhouse<br>
+            </div><br>
+            <div>
+                <label >Square Footage:</label><br>
+                <select name="square-footage">
+                    <option value="600-1000">600-1000 sqft</option>
+                    <option value="1100-1500">1100-1500 sqft</option>
+                    <option value="1600-1850">1600-1850 sqft</option>
+                    <option value="1900-2400">1900-2400 sqft</option>
+                    <option value="2500-3000">2500-3000 sqft</option>
+                    <option value="3100-4000">3100-4000 sqft</option>
+                    <option value="4100-5000">4100-5000 sqft</option>
+                </select>
+            </div><br>
+            <div>
+                <label >Minimum Price:</label><br>
+                <select name="min-price">
+                    <option value="100k">$100k</option>
+                    <option value="200k">$200k</option>
+                    <option value="300k">$300k</option>
+                    <option value="500k">$500k</option>
+                    <option value="700k">$700k</option>
+                    <option value="900k">$900k</option>
+                    <option value="1M+">$1M+</option>
+                </select>
+            </div><br>
+            <div>
+                <label >Maximum Price:</label><br>
+                <select name="max-price">
+                    <option value="100k">$100k</option>
+                    <option value="200k">$200k</option>
+                    <option value="300k">$300k</option>
+                    <option value="500k">$500k</option>
+                    <option value="700k">$700k</option>
+                    <option value="900k">$900k</option>
+                    <option value="1M+">$1M+</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="zipcode">Zipcode</label>
+                <input type="text" name="zipcode" id="zipcode" placeholder="input a zipcode">
+            </div><br>
+            <div>
+                <label >Number of Bedrooms:</label><br>
+                <select name="bedrooms">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7+">7+</option>
+                </select>
+            </div><br>
+            <div>
+                <label >Number of Bathrooms:</label><br>
+                <select name="bathrooms">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7+">7+</option>
+                </select>
+            </div><br>
+            <button type="submit">Search Now</button>
+        </fieldset>
+    </form>
+    
+</body>
+</html>
