@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+    <form method="POST" action="https://request-inspector.glitch.me/">
+        <fieldset style="background-color: whitesmoke">
+            <legend style="font-weight: bold; font-size: 2em; color: steelblue">Registration Form</legend>
+                <div>
+                    <label for="username">*Username:</label>
+                    <input type="text" autofocus="autofocus" name="username" id="username" placeholder="Enter your username" required>
+                </div><br>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" placeholder="Password" id="password" required>
+                    <input type="password" placeholder="Confirm Password" id="confirm_password" required>
+                </div><br>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" id="email" placeholder="Enter your email address">
+                </div><br>
+                <div>
+                    <input name="newsletter_signup" value="true" type="checkbox" checked>Sign me up for the newsletter
+                </div><br>
+                <button type="submit">Create New Account!</button>
+        </fieldset>
+    </form>
+    
+</body>
+</html>
