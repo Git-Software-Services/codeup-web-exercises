@@ -7,4 +7,56 @@ comment
 .fancy-header {
     color: purple; /* single line comment */
     text-decoration: underline;
+    text-align: center;
+}
+
+h2 {
+    color: aqua;
+    text-decoration: underline;
+}
+
+body {
+    background-color: aliceblue;
+    background-image: url(../img/pt17.png);
+    background-attachment: fixed;
+    font-family: 'Poor Story', cursive;
+    color: deeppink;
+}
+
+ ul {
+     list-style-type: square;
+     color: sandybrown;
+ }
+
+ table.chair {
+     border: sandybrown 1px solid;
+ }
+
+.chair td {
+    color: green;
+    padding: 8px;
+}
+
+.chair tr {
+    background-color: lightgrey;
+}
+
+a:link {
+    color:red;
+}
+
+a:visited {
+    color:black;
+}
+
+a:hover {
+    color:blue;
+}
+
+a:active {
+    color:green;
+}
+
+img:hover {
+    border: grey 5px solid;
 }
