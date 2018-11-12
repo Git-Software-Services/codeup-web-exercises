@@ -1,0 +1,137 @@
+@media (min-width: 800px) {
+    body {
+        margin: 1% 2%;
+    }
+
+    .hidden-on-desktop {
+        visibility: hidden
+    }
+
+    .nav-links li {
+        list-style-type: none;
+        display: inline-block;
+        padding-left: 2em;
+    }
+
+    .nav-links {
+        float: right;
+    }
+
+    h1 {
+        float: left;
+    }
+
+    .header-img > img {
+        /*width: 95%;*/
+        height: 400px;
+    }
+
+    #main {
+        /*width: 64%;*/
+        float: left;
+        /*margin-right: 1em;*/
+    }
+
+    .sub-section {
+        /*width: calc(30% - 10px);*/
+        float: right;
+        /*margin: 0em;*/
+    }
+
+    footer > p {
+        float: left;
+        display: block;
+    }
+
+    #social-media-links {
+        float: right;
+    }
+
+    footer {
+        padding-top: 20em;
+        padding-bottom: 10em;
+
+    }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<MOBILE PHONE BREAK POINT>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+@media only screen and (max-width: 815px) {
+    body {
+        margin: 1% 2%;
+    }
+
+    .alert-info {
+        text-align: center;
+        color: black;
+        background-color: rgb(195, 255, 255);
+        border: 1px lightgrey solid;
+        margin: 1em auto;
+        padding: 1em 0em;
+        text-decoration: none;
+    }
+
+    .alert-info > a {
+        text-decoration: none;
+        color: black;
+        font-family: sans-serif;
+    }
+
+    .nav-links {
+        list-style-type: none;
+        text-align: center;
+        text-decoration: none;
+        padding: 0em;
+    }
+
+    .nav-links > li {
+        list-style-type: none;
+        text-align: center;
+        background-color: rgb(193, 193, 193);
+        margin: 1em auto;
+        text-decoration: none;
+        padding: 1em 0em;
+        font-family: sans-serif;
+    }
+
+    h1 {
+        text-align: center;
+        font-family: sans-serif;
+        font-weight: bolder;
+        font-size: 3em;
+    }
+
+    .header-img > img {
+        height: auto;
+        /*width: 100%;*/
+    }
+
+    #main {
+        float: left;
+    }
+
+    .main {
+        font-size: 1em;
+        font-family: sans-serif;
+    }
+
+    .sub-section {
+        float: right;
+        font-size: 1em;
+        font-family: sans-serif;
+    }
+
+    footer > p{
+        float: left;
+        display:block;
+    }
+
+    #social-media-links {
+        float: right;
+    }
+
+    footer {
+        padding: 20em 1em 10em 1em;
+
+    }
+}
