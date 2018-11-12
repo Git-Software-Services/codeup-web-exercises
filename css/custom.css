@@ -1,0 +1,61 @@
+body {
+    margin: 1% 2%;
+}
+.jumbotron {
+    background-image: url("../img/pizza.png");
+    repeat: no-repeat;
+    background-size: 100%;
+}
+.container-fluid {
+    text-align:center;
+    background-color: #FFFFFF;
+    opacity: .6;
+    margin:0;
+}
+.badge-pill {
+    border-radius: 20px;
+    padding: 0 7px;
+    margin: 3px;
+}
+.decor-remove {
+    list-style-type: none;
+}
+.btn {
+    float: right;
+}
+.px-0 {
+    padding-top: 0!important;
+    padding-bottom: 0!important;
+}
+.p-3 {
+    padding: $spacer !important;
+}
+.blue-tint {
+    background-color: rgb(209, 232, 244);
+}
+.mt-3 {
+    padding: $spacer !important;
+}
+.hr-grey {
+    background-color: lightgray;
+}
+.fun-blue {
+    color: rgb(70, 121, 149);
+    font-weight:bold;
+}
+.gradient {
+    $ body-bg: $ gray-dark;
+    $ body-color: $ gray-light;
+}
+.blue-edge {
+    border: solid 1px rgb(209, 232, 244);
+}
+.b-gone {
+ padding: 0px!important;
+}
+.list-group-item {
+    padding: 1.25rem;
+}
+.float-right {
+    float: right!important;
+}
