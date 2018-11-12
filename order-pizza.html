@@ -1,10 +1,205 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
+    <!-- Required meta tags -->
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="custom.css">
+    <title>Order Pizza</title>
 </head>
 <body>
-    $END$
+    <!--<<<<<<<<<<NAVBAR><>>>>>>>>>>>>>>>>/-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Pizza world</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Order online <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Menu</a>
+                </li>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Zipcode" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Stores Near You!</button>
+                </form>
+            </ul>
+            <form >
+
+                <button class="btn  my-2 my-sm-0" type="submit"><i class="fas fa-user"></i> Sign Up</button>
+            </form>
+        </div>
+    </nav>
+    <!--<<<<<<<<<<NAVBAR ENDS><>>>>>>>>>>>>>>>>/-->
+    <!--<<<<<<<JUMBOTRON><>>>>>>>>>>>>>>/-->
+    <div class="jumbotron jumbotron-fluid .d-sm-none .d-md-block">
+        <div class="container-fluid">
+            <h1 class="display-4">Welcome To Pizza World!</h1>
+        </div>
+    </div>
+    <!--<<<<<<<JUMBOTRON ENDS><>>>>>>>>>>>>>>/-->
+    <!--<<<<<<<Secondary Nav><>>>>>>>>>>>>>>/-->
+    <h2>Build your own pizza!</h2>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a  href="#" class="nav-link active">
+                <span class="badge-pill badge-secondary">1</span> Size and Crust
+            </a>
+        </li>
+        <li class="nav-item">
+            <a  href="#" class="nav-link">
+                <span class="badge-pill badge-secondary">2</span> Cheese and Sauce
+            </a>
+        </li>
+        <li class="nav-item">
+            <a  href="#" class="nav-link">
+                <span class="badge-pill badge-secondary">3</span> Toppings
+            </a>
+        </li>
+    </ul>
+    <!--<<<<<<<Secondary Nav ENDS><>>>>>>>>>>>>>>/-->
+    <!--<<<<<<<CARDS/PANEL 1><>>>>>>>>>>>>>>/-->
+    <div class="card blue-edge">
+        <div class="card-header blue-tint fun-blue">
+            Choose size and crust
+        </div>
+        <div class="card-body">
+            <div class="card">
+                <div class="card-header">
+                    Hand Tossed
+                </div>
+                <div class="card-body px-0">
+                    <p class="card-title p-3">Garlic seasoned crust with a rich, buttery taste.</p>
+                    <ul class="list-group">
+                        <li class="list-group-item blue-tint fun-blue"><input type="radio" aria-label="Radio button for following text input"> Small (10")</li>
+                        <li class="list-group-item blue-tint fun-blue"><input type="radio" aria-label="Radio button for following text input"> Medium (12")</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card mt-3">
+                <div class="card-header">
+                    Crispy Thin Crust
+                </div>
+                <div class="card-body px-0">
+                    <p class="card-title p-3">Thin enough for optimum crispy to crunchy ratio.</p>
+                    <ul class="list-group">
+                        <li class="list-group-item blue-tint fun-blue"><input type="radio" aria-label="Radio button for following text input"> Medium (12")</li>
+                        <li class="list-group-item blue-tint fun-blue"><input type="radio" aria-label="Radio button for following text input"> Large (14")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-muted mt-3">
+            <a href="#" class="btn btn-primary">Next Step <i class="fas fa-chevron-right"></i></a>
+        </div>
+    </div>
+    <!--<<<<<<<CARDS/PANEL 1 ENDS><>>>>>>>>>>>>>>/-->
+    <div class="card mt-4 blue-edge">
+        <div class="card-header blue-tint fun-blue">
+            Choose cheese and sauce
+        </div>
+        <div class="card-body">
+            <div class="card">
+                <div class="card-header">
+                    Cheese?
+                </div>
+                <div class="card-body blue-tint py-2">
+                    <p class="card-title fun-blue">Cheese</p>
+                    <ul class="list-group">
+                        <select class="form-control">
+                            <option>Normal</option>
+                            <option>Lite</option>
+                            <option>Extra</option>
+                            <option>Double</option>
+                        </select>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    Sauce?
+                </div>
+                <div class="card-body blue-tint py-2">
+                    <p class="card-title fun-blue">Sauce</p>
+                    <ul class="list-group">
+                        <select class="form-control">
+                            <option>Tomato Sauce</option>
+                            <option>Marinara Sauce</option>
+                            <option>BBQ Sauce</option>
+                            <option>Alfredo Sauce</option>
+                        </select>
+                    </ul>
+                </div>
+                <hr class="my-0 hr-grey">
+                <div class="card-body blue-tint py-2">
+                    <p class="card-title fun-blue">How much?</p>
+                    <ul class="list-group">
+                        <select class="form-control">
+                            <option>Light</option>
+                            <option>Normal</option>
+                            <option>Extra</option>
+                        </select>
+                    </ul>
+                </div>
+            </div>
+        </div>
+            <div class="card-footer text-muted mt-3" role="group" aria-label="Basic example">
+                <a href="#" class="btn btn-primary float-right">Next Step <i class="fas fa-chevron-right"></i></a>
+                <a href="#" class="btn btn-primary float-right"><i class="fas fa-chevron-left"></i> Previous Step</a>
+            </div>
+        </div>
+    <!--<<<<<<<CARDS/PANEL 2 ENDS><>>>>>>>>>>>>>>/-->
+    <div class="card mt-4 blue-edge">
+        <div class="card-header blue-tint fun-blue">
+            Choose toppings
+        </div>
+        <div class="card-body">
+            <div class="card">
+                <div class="card-header">
+                    Choose Meats
+                </div>
+                <div class="card-body blue-tint b-gone">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item blue-tint fun-blue"><input type="checkbox" aria-label="Checkbox for following text input"> Beef</li>
+                        <li class="list-group-item blue-tint fun-blue"><input type="checkbox" aria-label="Checkbox for following text input"> Ham</li>
+                        <li class="list-group-item blue-tint fun-blue"><input type="checkbox" aria-label="Checkbox for following text input"> Philly Steak</li>
+                        <li class="list-group-item blue-tint fun-blue"><input type="checkbox" aria-label="Checkbox for following text input"> Bacon</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-header">
+                    Choose Non-Meats
+                </div>
+                <div class="card-body blue-tint b-gone">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item blue-tint fun-blue"><input type="checkbox" aria-label="Checkbox for following text input"> Green Peppers</li>
+                        <li class="list-group-item blue-tint fun-blue"><input type="checkbox" aria-label="Checkbox for following text input"> Mushrooms</li>
+                        <li class="list-group-item blue-tint fun-blue"><input type="checkbox" aria-label="Checkbox for following text input"> Olives</li>
+                        <li class="list-group-item blue-tint fun-blue"><input type="checkbox" aria-label="Checkbox for following text input"> Jalepeno Peppers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+            <div class="card-footer text-muted mt-5">
+                <a href="#" class="btn btn-primary">Checkout <i class="fas fa-shopping-cart"></i></a>
+            </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="bundle.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
