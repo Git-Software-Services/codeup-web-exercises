@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 1% 2%;
+}
+h2, h3, p {
+    font-family: 'Anton', sans-serif;
+}
+h6 {
+    font-family: 'Abel', sans-serif;
+}
+p {
+    padding-top: 42px;
+}
+.logo-img {
+    margin-top: -2.0em;
+    margin-bottom: -2.0em;
+}
+.my-header {
+    background-color: lightgrey;
+    padding: 1em;
+}
+.my-row {
+    background-color: lightgrey;
+}
+.my-container {
+    background-color: lightgrey;
+}
+h1 {
+    padding-top: .5em;
+    font-family: 'Abel', sans-serif;
+}
+a  {
+    padding: .5em;
+}
+/* unvisited link */
+a:link {
+    color: black;
+    font-family: 'Abel', sans-serif;
+}
+
+/* visited link */
+a:visited {
+    color: black;
+}
+
+/* mouse over link */
+a:hover {
+    color: black;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+.circle {
+    border-radius: 50%;
+    width: 8em;
+    height: 8em;
+    border: white solid .5em;
+    /*display: inline-block;*/
+    margin: .5em .5em;
+}
+.circle-red {
+    background-color: rgb(220, 63, 45);
+}
+.circle-yellow {
+    background-color: rgb(224, 141, 20);
+}
+.circle-green {
+    background-color: rgb(107, 163, 90);
+}
+.circle-blue {
+    background-color: rgb(21, 157, 153);
+}
+.circle-row {
+    text-align: center;
+    color: white;
+}
+#left-circle    {
+
+}
+#right-circle   {
+
+}
+.mini-circle {
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    /*border: white solid .5em;*/
+    /*display: inline-block;*/
+    margin: .5em .5em;
+}
+.letter {
+    font-family: 'Anton', sans-serif;
+    color:black;
+}
