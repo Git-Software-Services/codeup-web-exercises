@@ -20,6 +20,9 @@ body {
 .decor-remove {
     list-style-type: none;
 }
+p {
+    margin-top:42px;
+}
 .btn {
     float: right;
 }
