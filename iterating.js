@@ -81,13 +81,13 @@ function oneHundred() {
 oneHundred()
 
 // Exercise2:
-function reverse() {
     let fruits = ["Kiwi", "Mango", "Apple", "Figs"];
-    let myFruits = fruits.reverse();
-    console.log(`New array: ${myFruits}`);
+function reverse(fruits) {
+    let reverseFruits = fruits.slice().reverse();
+    console.log(`New array: ${reverseFruits}`);
     console.log(`Original array: ${fruits}`);
 }
-reverse()
+reverse(fruits)
 
 // Exercise3:
 function sumAll(num1, num2) {
