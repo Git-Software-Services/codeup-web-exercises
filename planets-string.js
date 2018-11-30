@@ -1,3 +1,4 @@
+// planets-string
 (function(){
     "use strict";
 
@@ -24,20 +25,17 @@
      * string, and <li> tags around each planet.
      */
 
-        // Replace ',' with '<br>'
-    let stringReplaceFrom = /,/g;
-    let stringReplaceTo = '<br>';
-    let planetsJoin = planetsArray.join(',').replace(stringReplaceFrom,stringReplaceTo).split();
-    console.log(planetsJoin);
-
-    console.log(planetsJoin.unshift());
+let stringPlanet = planetsArray.join("<br>");
+console.log(stringPlanet);
 
 
+// BONUS
 
-// pass a function to map
-    let mapPlanetsJoin = planetsJoin.map(unshift('<li>'));
+let htmlString = "<ul><li>";
 
-    console.log(mapPlanetsJoin);
-// expected output: Array [2, 8, 18, 32]
+htmlString += planetsArray.join("</li><li>");
 
+htmlString += "</li></ul>";
+
+console.log(htmlString)
 })();
