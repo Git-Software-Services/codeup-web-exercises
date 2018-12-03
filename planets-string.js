@@ -1,4 +1,3 @@
-// planets-string
 (function(){
     "use strict";
 
@@ -25,8 +24,18 @@
      * string, and <li> tags around each planet.
      */
 
-let stringPlanet = planetsArray.join("<br>");
-console.log(stringPlanet);
+        // Replace ',' with '<br>'
+    let stringReplaceFrom = /,/g;
+    let stringReplaceTo = '<br>';
+    let planetsJoin = planetsArray.join(',').replace(stringReplaceFrom,stringReplaceTo).split();
+    console.log(planetsJoin);
+
+    console.log(planetsJoin.unshift());
+
+
+let brake = planetsJoin.join("<br>");
+console.log(brake);
+
 
 
 // BONUS
@@ -37,5 +46,8 @@ htmlString += planetsArray.join("</li><li>");
 
 htmlString += "</li></ul>";
 
-console.log(htmlString)
+console.log(htmlString);
+
+
 })();
+
