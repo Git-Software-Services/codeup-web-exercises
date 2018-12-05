@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Maps API</title>
+    <style type="text/css">
+        #map-canvas {
+            width: 770px;
+            height: 481px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- div to hold map -->
+    <div id="map-canvas"></div>
+
+    <!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyBAMc4TtoK_UXMaFb6Lrg9e7VQeFwhdHl4"></script>
+
+    <!-- Script to show address on map -->
+    <script type="text/javascript">
+        (function() {
+            "use strict";
+            //original code for first location
+            var myLatlng = new google.maps.LatLng(33.738502, -84.4225);
+            // Set our map options
+            var mapOptions = {
+                // Set the zoom level
+                zoom: 18,
+
+                // This sets the center of the map at the location
+                center: myLatlng,
+
+                // Show this map in satellite view
+                mapTypeId: google.maps.MapTypeId.SATELLITE,
+
+            };
+            //Content of window
+            var contentString = '<div id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<h1 id="firstHeading" class="firstHeading">Tassili\'s Raw Reality</h1>'+
+                '<div id="bodyContent">'+
+                '<p><b>Tassili\'s Raw Reality</b> is a raw vegan cafe located in Atlanta Georgia. I was introduced to a better and healthier way of eating at this location. Every dish available is astonishingly flavorful and nutritious. They are known for their kale wraps. This is greatly due to the consistency of flavor and size of the wraps. My favorite wrap is the Punany Wrap. </p>'+
+                '<p>For more information or to check out the menu, go to Tassili\'s Raw Reality: <a href="https://www.tassilisrawreality.com/">Website</a> '+
+                '</p>'+
+                '</div>'+
+                '</div>';
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            // Creates marker on map with animation
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                animation: google.maps.Animation.DROP,
+                map: map,
+                title: 'Tassili\'s Raw Reality'
+            });
+
+            //To make the info window visible, you need to call the open() method on the InfoWindow, passing it the Map on which to open, and optionally, the Marker with which to anchor it.
+            marker.addListener('click', function() {
+                infowindow.open(map, marker);
+            });
+
+            var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+            marker.setMap(map);
+        })();
+    </script>
+</body>
+
+
+    <!--<script>-->
+
+
+        <!--// Set our address to geocode-->
+        <!--var address = "1059 Ralph David Abernathy Blvd, Atlanta, GA 30310";-->
+
+        <!--// Init geocoder object-->
+        <!--var geocoder = new google.maps.Geocoder();-->
+
+        <!--// Geocode our address-->
+        <!--geocoder.geocode({ "address": address }, function(results, status) {-->
+
+            <!--// Check for a successful result-->
+            <!--if (status == google.maps.GeocoderStatus.OK) {-->
+
+                <!--// Recenter the map over the address-->
+                <!--map.setCenter(results[0].geometry.location);-->
+            <!--} else {-->
+
+                <!--// Show an error message with the status if our request fails-->
+                <!--alert("Geocoding was not successful - STATUS: " + status);-->
+            <!--}-->
+        <!--});-->
+    <!--</script>-->
+</body>
+</html>
