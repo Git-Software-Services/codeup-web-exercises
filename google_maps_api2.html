@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>google maps api 2</title>
+    <style type="text/css">
+        #map-canvas {
+            width: 770px;
+            height: 481px;
+        }
+    </style>
+</head>
+<body>
+    <!-- div to hold map -->
+    <div id="map-canvas"></div>
+    <input id="address" type="address">
+    <button id="search-button">Search Location</button>
+
+    <!-- (Load first, order of scripts are important) Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyBvVIZozQaijJ_e-6bBlH1g5PQlbvHv6-E"></script>
+
+
+    <!-- Script to show address on map -->
+    <script type="text/javascript">
+        (function() {
+            "use strict";
+
+// Init geocoder object
+            var geocoder = new google.maps.Geocoder();
+
+            var address = {lat:  29.426791, lng: -98.489602};
+            var newAddress = "";
+
+            // Set our map options
+            var mapOptions = {
+                // Set the zoom level
+                zoom: 18,
+                center: address,
+            };
+
+
+            // Render the map
+            var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+            // Creates marker on map for NewAddress
+            var marker = new google.maps.Marker({
+                position: address,
+                animation: google.maps.Animation.DROP,
+                map: map,
+            });
+
+            marker.setMap(map);
+
+            //On the button click the contents of the address variable is replaced with the NewAddress. The newAddress should take the contents on address and resubmit it to the geocoder.
+            var searchButton = document.getElementById('search-button');
+            searchButton.addEventListener('click', listener, false);
+
+
+            function listener() {
+                var newAddress = document.getElementById("address").value;
+                //geocoder function from google
+                geocoder.geocode({ "address": newAddress }, function(results, status) {
+
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        // Rerender the map
+                        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+                        // Recenter the map over the address
+                        map.setCenter(results[0].geometry.location);
+
+                        //Set marker on new address. The results for which are returned in the google map render function
+                        marker.position = results[0].geometry.location;
+
+                        marker.setMap(map);
+                    } else {
+
+                        // Show an error message with the status if our request fails
+                        alert("Geocoding was not successful - STATUS: " + status);
+                    }
+
+                    console.log(address)
+                });
+
+            };
+
+
+        })();
+    </script>
+</body>
+</html>
