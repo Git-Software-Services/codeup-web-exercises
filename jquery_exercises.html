@@ -5,9 +5,27 @@
     <title>jquery_exercises</title>
 </head>
 <body>
-    <h2 id ="title">My Stuff</h2>
+    <h2 id ="title codeup">My Stuff</h2>
     <div>
-        <p id="paragraph">Lorem</p>
+        <p class="codeup">Lorem</p>
+        <ul>
+            <li class="item">Who</li>
+            <li class="item">What</li>
+            <li class="item">When</li>
+            <li class="item">Where</li>
+        </ul>
+    </div>
+    <div>
+        <p class="codeup">Lorem</p>
+        <ul>
+            <li class="item">Who</li>
+            <li class="item">What</li>
+            <li class="item">When</li>
+            <li class="item">Where</li>
+        </ul>
+    </div>
+    <div>
+        <p>Lorem</p>
         <ul>
             <li class="item">Who</li>
             <li class="item">What</li>
@@ -37,6 +55,8 @@
             var h1Content = $('h2').html();
 
             alert(h1Content);
+
+            $('.codeup').css('border', '1px red solid');
 
         });
 
