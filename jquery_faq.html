@@ -10,6 +10,11 @@
     </style>
 </head>
 <body>
+    <div id="first-div">
+        <span id="exit">x</span><h1>Would you like to sign up for our newsletter?</h1>
+        <h2 id="register">Register for the site!</h2>
+
+    </div>
     <h1><a href="#" id="toggler">national parks faq's</a></h1>
     <div id="main">
         <dl>
@@ -61,28 +66,44 @@
     </div>
     <script src="js/jquery-2.x-git.js"></script>
     <script>
-        $('.data').addClass('invisible');
+        $(document).ready(function() {
 
-        $('#toggler').click(function() {
+            $('.data').addClass('invisible');
+
+            $('#toggler').click(function () {
                 // event.preventDefault();
                 $('dd').toggleClass('invisible');
             });
-        $('dt').click(function(){
-            $(this).next().toggleClass('invisible');
-        })
+            $('dt').click(function () {
+                $(this).next().toggleClass('invisible');
+            })
 
-        //Next Exercise
-        $('ul li:last-child').css('background-color', 'yellow');
+            //Next Exercise
+            $('ul li:last-child').css('background-color', 'yellow');
 
-        $('h3').click(function(){
-            $(this).next().css('font-weight', 'bold');
+            $('h3').click(function () {
+                $(this).next().children().css('font-weight', 'bold');
+            });
+
+            $('li').click(function () {
+                $(this).parent().children().first().css('color', 'blue');
+            });
+
+            //Last Exercise
+            $('#exit').click(function () {
+                $('#first-div').fadeOut(3000);
+            });
+
+            $('ul').hide();
+
+            $('h3').click(function () {
+                $(this).next().slideToggle('slow')
+            });
+
+            $('#register').hide();
+            $('#register').delay(8000).fadeIn(3000);
+
         });
-
-        $('li').click(function() {
-            $(this).parent().children().first().css('color', 'blue');
-        });
-
-
 
 
     </script>
