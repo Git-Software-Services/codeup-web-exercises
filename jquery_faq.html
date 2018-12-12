@@ -32,6 +32,32 @@
             </dd>
         </dl>
 
+        <h3 id="national-parks-heading">National Parks</h3>
+        <ul id="national-parks">
+            <li>Arches</li>
+            <li>Badlands</li>
+            <li>Carlsbad Caverns</li>
+
+            <li>Everglades</li>
+        </ul>
+
+        <h3>State Parks of Texas</h3>
+        <ul id="state-parks-texas">
+            <li>Abilene</li>
+            <li>Big Bend</li>
+            <li>Choke Canyon</li>
+            <li>Davis Mountains</li>
+
+        </ul>
+
+        <h3>State Parks of Texas</h3>
+        <ul id="state-parks">
+            <li>Somali</li>
+            <li>Big Lakes</li>
+            <li>Denali</li>
+            <li>Enchanted Rock</li>
+        </ul>
+
     </div>
     <script src="js/jquery-2.x-git.js"></script>
     <script>
@@ -44,6 +70,20 @@
         $('dt').click(function(){
             $(this).next().toggleClass('invisible');
         })
+
+        //Next Exercise
+        $('ul li:last-child').css('background-color', 'yellow');
+
+        $('h3').click(function(){
+            $(this).next().css('font-weight', 'bold');
+        });
+
+        $('li').click(function() {
+            $(this).parent().children().first().css('color', 'blue');
+        });
+
+
+
 
     </script>
 </body>
