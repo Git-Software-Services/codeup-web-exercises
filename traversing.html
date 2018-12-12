@@ -2,9 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Traversing Bonus</title>
+    <style>
+        div {
+            display: inline-block;
+            border: cyan 4px solid;
+            padding: 10px;
+
+        }
+        .img1 {
+            background-image: url("./img/macbook.jpg");
+            height: 300px;
+            width: 300px;
+        }
+        .img2 {
+            background-image: url("./img/mobile-phone.jpg");
+            height: 300px;
+            width: 300px;
+        }
+        .img3 {
+            background-image: url("./img/man.jpg");
+            height: 300px;
+            width: 300px;
+        }
+    </style>
 </head>
 <body>
-    $END$
+    <h1>Traversing Bonus</h1>
+    <div class="img1">
+    <button>SWAP</button>
+    </div>
+    <div class="img2">
+    <button>SWAP</button>
+    </div>
+    <div class="img3">
+    <button>SWAP</button>
+    </div>
+    <script src="js/jquery-2.x-git.js"></script>
+    <script>
+        $('.img1').click(function(){
+           $('.img1').replaceWith('.img2');
+        });
+    </script>
 </body>
 </html>
