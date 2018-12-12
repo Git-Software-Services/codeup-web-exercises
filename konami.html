@@ -11,7 +11,7 @@
     <script>
         "use strict";
 
-        // Global Variables for PONG
+        // Global Variables for PONG (borrowed code)
         var DIRECTION = {
             IDLE: 0,
             UP: 1,
@@ -26,12 +26,33 @@
 
                konamiNewArray.push(e.keyCode);
                 if (konamiArray.join() === konamiNewArray.join()){
-                    // alert("I did it!")
 
                     $('#full').css('text-align', 'center')
                     $('#pong').text('PONG')
                     $('#pong').css('color', 'white')
                     $('#screen').css('background-color', '#222f3e')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                     //PONG Code: https://speckyboy.com/retro-video-games-html5-js-css/
                     var rounds = [5, 5, 3, 3, 2];
