@@ -3,109 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <title>Jquery FAQ's</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <style>
         .invisible {
             display: none;
         }
+
+
     </style>
 </head>
 <body>
-    <div id="first-div">
-        <span id="exit">x</span><h1>Would you like to sign up for our newsletter?</h1>
-        <h2 id="register">Register for the site!</h2>
+    <div class="container-fluid">
 
+<!--NEWSLETTER ALERT>>>>>>>>>>>>>>-->
+        <div id="exit first-div" class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Don't forget</strong> to sign up for our newsletter!
+        </div>
+
+        <!--Modal>>>>>>>>>>>>>>>>-->
+        <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Registration</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Please register to access our full list of State Parks&hellip;</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Register</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <div class="page-header">
+            <h1 class="text-center"><a href="#" id="toggler">National Parks FAQ's  <span class="glyphicon glyphicon-list-alt"> </span></a></h1>
+        </div>
+
+    <div class="row">
+        <div id="main" class="col-xs-9 col-md-6">
+            <dl>
+                <dt>How do I obtain a park entrance pass?</dt>
+                <dd class="data">Fewer than one-third of the national parks charge entrance fees. You can obtain park entrance passes by visiting a park site that charges an entrance fee. Entrance fee sites have passes available; we recommend calling a park prior to your visit. (See the park search to locate a specific park.) There are a number of entrance passes available, including park-specific passes as well as passes that offer entrance to more than 2,000 federal recreation sites in addition to the national parks (Annual, Military, Senior, 4th Grade, Access, and Volunteer passes). Learn more about the America the Beautiful - The National Parks and Federal Recreational Lands Pass.</dd>
+                <dt>How do I make reservations for camping/lodging in national parks?
+                </dt>
+                <dd class="data">For campground reservations, visit Recreation.gov. Not all parks participate in this service; many campgrounds are first come, first served. For more information on specific camping and lodging services offered at the park(s) of your interest, please check specific park websites. You can also learn more about camping in national parks and find a map of parks with camping opportunities.</dd>
+                <dt>Can I bring my pet to a national park?
+                </dt>
+                <dd class="data">Some national parks welcome pets—in developed areas, on many trails and campgrounds, and in some lodging facilities. Learn more about pets in parks.
+                </dd>
+                <dt>What do I need to know about driving off road in national parks?
+                </dt>
+                <dd class="data">Before you head out, check with the national parks that you intend to visit. In many national parks, off-road driving is illegal. Where off-road driving is allowed, the National Park Service regulates it.
+                </dd>
+                <dt>How old is the National Park System?
+                </dt>
+                <dd class="data">The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916. Yellowstone National Park was established by an act signed by President Ulysses S. Grant on March 1, 1872, as the nation's first national park. View the National Park System timeline.
+                </dd>
+            </dl>
+
+            <h3 id="national-parks-heading">State Parks of California...</h3>
+            <ul id="national-parks" class="list-group">
+                <li class="list-group-item">Arches</li>
+                <li class="list-group-item">Badlands</li>
+                <li class="list-group-item">Carlsbad Caverns</li>
+                <li class="list-group-item">Everglades</li>
+            </ul>
+
+            <h3>State Parks of Texas...</h3>
+            <ul id="state-parks-texas" class="list-group">
+                <li class="list-group-item">Abilene</li>
+                <li class="list-group-item">Big Bend</li>
+                <li class="list-group-item">Choke Canyon</li>
+                <li class="list-group-item">Davis Mountains</li>
+            </ul>
+
+            <h3>State Parks of Georgia...</h3>
+            <ul id="state-parks" class="list-group">
+                <li class="list-group-item">Somali</li>
+                <li class="list-group-item">Big Lakes</li>
+                <li class="list-group-item">Denali</li>
+                <li class="list-group-item">Enchanted Rock</li>
+            </ul>
+
+        </div>
+        <div id="img-div" class="col-xs-3 col-md-6">
+            <img src="img/eric-muhr-674754-unsplash.jpg" class="img-fluid img-fade" width="960" height="819" >
+        </div>
     </div>
-    <h1><a href="#" id="toggler">national parks faq's</a></h1>
-    <div id="main">
-        <dl>
-            <dt>How do I obtain a park entrance pass?</dt>
-            <dd class="data">Fewer than one-third of the national parks charge entrance fees. You can obtain park entrance passes by visiting a park site that charges an entrance fee. Entrance fee sites have passes available; we recommend calling a park prior to your visit. (See the park search to locate a specific park.) There are a number of entrance passes available, including park-specific passes as well as passes that offer entrance to more than 2,000 federal recreation sites in addition to the national parks (Annual, Military, Senior, 4th Grade, Access, and Volunteer passes). Learn more about the America the Beautiful - The National Parks and Federal Recreational Lands Pass.</dd>
-            <dt>How do I make reservations for camping/lodging in national parks?
-            </dt>
-            <dd class="data">For campground reservations, visit Recreation.gov. Not all parks participate in this service; many campgrounds are first come, first served. For more information on specific camping and lodging services offered at the park(s) of your interest, please check specific park websites. You can also learn more about camping in national parks and find a map of parks with camping opportunities.</dd>
-            <dt>Can I bring my pet to a national park?
-            </dt>
-            <dd class="data">Some national parks welcome pets—in developed areas, on many trails and campgrounds, and in some lodging facilities. Learn more about pets in parks.
-            </dd>
-            <dt>What do I need to know about driving off road in national parks?
-            </dt>
-            <dd class="data">Before you head out, check with the national parks that you intend to visit. In many national parks, off-road driving is illegal. Where off-road driving is allowed, the National Park Service regulates it.
-            </dd>
-            <dt>How old is the National Park System?
-            </dt>
-            <dd class="data">The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916. Yellowstone National Park was established by an act signed by President Ulysses S. Grant on March 1, 1872, as the nation's first national park. View the National Park System timeline.
-            </dd>
-        </dl>
+            <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+            <script src="js/jquery-2.x-git.js"></script>
+            <!-- Latest compiled and minified JavaScript -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+            <script>
+                $(document).ready(function() {
 
-        <h3 id="national-parks-heading">National Parks</h3>
-        <ul id="national-parks">
-            <li>Arches</li>
-            <li>Badlands</li>
-            <li>Carlsbad Caverns</li>
+                    $('.data').addClass('invisible');
 
-            <li>Everglades</li>
-        </ul>
+                    $('#toggler').click(function () {
+                        // event.preventDefault();
+                        $('dd').toggleClass('invisible');
+                    });
+                    $('dt').click(function () {
+                        $(this).next().toggleClass('invisible');
+                    })
 
-        <h3>State Parks of Texas</h3>
-        <ul id="state-parks-texas">
-            <li>Abilene</li>
-            <li>Big Bend</li>
-            <li>Choke Canyon</li>
-            <li>Davis Mountains</li>
+                    //Next Exercise
+                    $('ul li:last-child').css('background-color', 'yellow');
 
-        </ul>
+                    $('h3').click(function () {
+                        $(this).next().children().css('font-weight', 'bold');
+                    });
 
-        <h3>State Parks of Texas</h3>
-        <ul id="state-parks">
-            <li>Somali</li>
-            <li>Big Lakes</li>
-            <li>Denali</li>
-            <li>Enchanted Rock</li>
-        </ul>
+                    $('li').click(function () {
+                        $(this).parent().children().first().css('color', 'blue');
+                    });
 
-    </div>
-    <script src="js/jquery-2.x-git.js"></script>
-    <script>
-        $(document).ready(function() {
+                    //Last Exercise
+                    $('#exit').click(function () {
+                        $('#first-div').fadeOut(3000);
+                    });
 
-            $('.data').addClass('invisible');
+                    $('ul').hide();
 
-            $('#toggler').click(function () {
-                // event.preventDefault();
-                $('dd').toggleClass('invisible');
-            });
-            $('dt').click(function () {
-                $(this).next().toggleClass('invisible');
-            })
+                    $('h3').click(function () {
+                        $(this).next().slideToggle('slow')
+                    });
 
-            //Next Exercise
-            $('ul li:last-child').css('background-color', 'yellow');
+                    $('img').hide();
+                    $('img').fadeIn(12000);
+                    setTimeout(function() {
+                        $('#myModal').modal();
+                    }, 4000);
 
-            $('h3').click(function () {
-                $(this).next().children().css('font-weight', 'bold');
-            });
-
-            $('li').click(function () {
-                $(this).parent().children().first().css('color', 'blue');
-            });
-
-            //Last Exercise
-            $('#exit').click(function () {
-                $('#first-div').fadeOut(3000);
-            });
-
-            $('ul').hide();
-
-            $('h3').click(function () {
-                $(this).next().slideToggle('slow')
-            });
-
-            $('#register').hide();
-            $('#register').delay(8000).fadeIn(3000);
-
-        });
+                    $('dd').prepend('<br>').append('<br>');
+                    $('dt').prepend(' <br><span class="glyphicon glyphicon-menu-down"></span> ');
 
 
-    </script>
+                });
+
+
+            </script>
 </body>
 </html>
