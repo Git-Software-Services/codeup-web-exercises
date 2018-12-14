@@ -18,9 +18,9 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text">Location</span>
                     </div>
-                    <input type="text" id="new-lat" class="form-control" placeholder="Search for..." autofocus>
-                    <input type="text" id="new-lon" class="form-control" placeholder="Search for...">
-                    <button id="submit-btn" class="btn btn-secondary" type="button">Search</button>
+                    <input type="text" id="newLat" class="form-control" placeholder="Search for..." autofocus>
+                    <input type="text" id="newLon" class="form-control" placeholder="Search for...">
+                    <button id="submitButton" class="btn btn-secondary" type="button">Search</button>
                 </div>
 
             <!--THREE DAY FORECAST CARDS-->
@@ -64,8 +64,22 @@
 
             function loadTable() {
                 var trHTML = '';
-                $.ajax("https://api.openweathermap.org/data/2.5/forecast?lat=18.17&lon=-96.12&units=imperial&APPID=8f5c57daacb4b80dfbaab615e6a89e18")
-                    .done(function (forecast) {
+
+                $('#submitButton').click(function(){
+                var lat = $('#newLat').val();
+                var lon = $('#newLon').val();
+                console.log(lat);
+                console.log(lon);
+
+
+                $.get("https://api.openweathermap.org/data/2.5/forecast", {
+                    APPID: "8f5c57daacb4b80dfbaab615e6a89e18",
+                    lat: lat,
+                    lon: lon,
+                    units: "imperial"
+
+
+                }).done(function (forecast) {
 
 
                         for (var i = 0; i < forecast.list.length; i++) {
@@ -82,41 +96,46 @@
                                 }
                         };
                         //End of loop
-                    })
-
-                    .fail(function (data, status) {
-                        console.log("Failed");
-
                     });
+            });
+
+            };
+
+            // DEFAULT LAT AND LON
+
+            $.get("https://api.openweathermap.org/data/2.5/forecast", {
+                APPID: "8f5c57daacb4b80dfbaab615e6a89e18",
+                lat: 29.423017,
+                lon: -98.48527,
+                units: "imperial"
 
 
-
-            }
-
-
-                     $( '#newCoord' ).keyup(function(e){
-                        alert(value);
-                        // return value.trim();
-                    });
+            }).done(function (forecast) {
 
 
+                for (var i = 0; i < forecast.list.length; i++) {
+
+                    var trHTML = '<tr><td>' + forecast.list[i].main.temp_max + 'º' + '/' + forecast.list[i].main.temp_min + 'º' + '</td></tr><tr><td>' + '</td><tr></tr><td>' + '<strong>Humidity: </strong>' + forecast.list[i].main.humidity + '</td><tr></tr><td>' + '<strong>Wind:  </strong>' + forecast.list[i].wind.speed + ' mph' + '</td><tr></tr><td>' + '<strong>Pressure: </strong>' + forecast.list[i].main.pressure + '</td></tr>';
+                    // });
+                    // console.log(i)
+                    if (i === 0) {
+                        $('#tbl1').html(trHTML);
+                    }else if (i === 8) {
+                        $('#tbl2').html(trHTML);
+                    }else if (i === 16) {
+                        $('#tbl3').html(trHTML);
+                    }
+                };
+                //End of loop
+            });
             loadTable();
-
-
-            // Refresh button
-            // $('#refresh').click(function () {
-            //     loadTable();
-            // });
-
         })();
 
-        // $.ajax('url.com', {
-        //     APPID: key,
-        //     lat: 67,
-        //     lon: 89
-        // }).done(function(data){
-        //     console.log(data.lat);
-        // });
+
+
+        // })();
+
+
     </script>
     
 </body>
