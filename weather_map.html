@@ -7,28 +7,55 @@
 
 </head>
 <body>
-    <h1 id="title">Weather Map</h1>
-    <h2>Three-Day Forecast</h2>
-    <div id="refresh" class="container-fluid">
+    <h1 id="title">The Weather App</h1>
+    <h2>San Antonio</h2>
+
+    <div  class="container-fluid">
         <div class="row">
-            <div class="col-4 d-inline-block">
-                <table id="tbl1" class="insertWeather"></table>
-            </div>
+            <!--INPUT FOR LAT AND LON-->
+            <!--<div class="col-lg-6 pb-5">-->
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Location</span>
+                    </div>
+                    <input type="text" id="new-lat" class="form-control" placeholder="Search for..." autofocus>
+                    <input type="text" id="new-lon" class="form-control" placeholder="Search for...">
+                    <button id="submit-btn" class="btn btn-secondary" type="button">Search</button>
+                </div>
 
-            <div id="tbl2" class="col-4 d-inline-block">
-                <table class="insertWeather"></table>
+            <!--THREE DAY FORECAST CARDS-->
+            <div class="col-4">
+                <div class="card text-center">
+                    <div class="card-block">
+                        <h3 class="card-title bg-info">Day 1</h3>
+                        <table id="tbl1" class="insertWeather card-text"></table>
+                    </div>
+                </div>
             </div>
-
-            <div id="tbl3" class="col-4 d-inline-block">
-                <table class="insertWeather"></table>
+            <div class="col-4">
+                <div class="card text-center">
+                    <div class="card-block">
+                        <h3 class="card-title bg-info">Day 2</h3>
+                        <table id="tbl2" class="insertWeather card-text"></table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card text-center">
+                    <div class="card-block">
+                        <h3 class="card-title bg-info">Day 3</h3>
+                        <table id="tbl3" class="insertWeather card-text"></table>
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
 
     <!--END OF BODY CONTENT-->
     <!--JQUERY-->
     <script src="js/jquery-2.x-git.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <!-- BOOTSTRAP -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script>
@@ -39,11 +66,11 @@
                 var trHTML = '';
                 $.ajax("https://api.openweathermap.org/data/2.5/forecast?lat=18.17&lon=-96.12&units=imperial&APPID=8f5c57daacb4b80dfbaab615e6a89e18")
                     .done(function (forecast) {
-                        // console.log(forecast);
-                        for (var i = 0; i < forecast.list.length; i = i + 8) {
-                            // $.each(forecast.list, function (i, list) {
-                                // console.log(list)
-                                trHTML = '<tr><td>' + forecast.list[i].main.temp_max + 'º' + '/' + forecast.list[i].main.temp_min + 'º' + '</td></tr><tr><td>' + '</td><tr></tr><td>' + 'Humidity: ' + forecast.list[i].main.humidity + '</td><tr></tr><td>' + 'Wind:  ' + forecast.list[i].wind.speed + '</td><tr></tr><td>' + 'Pressure: ' + forecast.list[i].main.pressure + '</td></tr>';
+
+
+                        for (var i = 0; i < forecast.list.length; i++) {
+
+                                trHTML = '<tr><td>' + forecast.list[i].main.temp_max + 'º' + '/' + forecast.list[i].main.temp_min + 'º' + '</td></tr><tr><td>' + '</td><tr></tr><td>' + '<strong>Humidity: </strong>' + forecast.list[i].main.humidity + '</td><tr></tr><td>' + '<strong>Wind:  </strong>' + forecast.list[i].wind.speed + ' mph' + '</td><tr></tr><td>' + '<strong>Pressure: </strong>' + forecast.list[i].main.pressure + '</td></tr>';
                             // });
                             // console.log(i)
                                 if (i === 0) {
@@ -65,15 +92,31 @@
 
 
             }
+
+
+                     $( '#newCoord' ).keyup(function(e){
+                        alert(value);
+                        // return value.trim();
+                    });
+
+
             loadTable();
 
 
-            //Refresh button
+            // Refresh button
             // $('#refresh').click(function () {
             //     loadTable();
             // });
 
         })();
+
+        // $.ajax('url.com', {
+        //     APPID: key,
+        //     lat: 67,
+        //     lon: 89
+        // }).done(function(data){
+        //     console.log(data.lat);
+        // });
     </script>
     
 </body>
