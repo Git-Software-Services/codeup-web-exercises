@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+</head>
+<body>
+    <h1 id="title">Weather Map</h1>
+    <h2>Three-Day Forecast</h2>
+    <div id="refresh" class="container-fluid">
+        <div class="row">
+            <div class="col-4 d-inline-block">
+                <table id="tbl1" class="insertWeather"></table>
+            </div>
+
+            <div id="tbl2" class="col-4 d-inline-block">
+                <table class="insertWeather"></table>
+            </div>
+
+            <div id="tbl3" class="col-4 d-inline-block">
+                <table class="insertWeather"></table>
+            </div>
+        </div>
+
+    </div>
+
+    <!--END OF BODY CONTENT-->
+    <!--JQUERY-->
+    <script src="js/jquery-2.x-git.js"></script>
+    <!-- BOOTSTRAP -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+        (function() {
+            "use strict";
+
+            function loadTable() {
+                var trHTML = '';
+                $.ajax("https://api.openweathermap.org/data/2.5/forecast?lat=18.17&lon=-96.12&units=imperial&APPID=8f5c57daacb4b80dfbaab615e6a89e18")
+                    .done(function (forecast) {
+                        // console.log(forecast);
+                        for (var i = 0; i < forecast.list.length; i = i + 8) {
+                            // $.each(forecast.list, function (i, list) {
+                                // console.log(list)
+                                trHTML = '<tr><td>' + forecast.list[i].main.temp_max + 'º' + '/' + forecast.list[i].main.temp_min + 'º' + '</td></tr><tr><td>' + '</td><tr></tr><td>' + 'Humidity: ' + forecast.list[i].main.humidity + '</td><tr></tr><td>' + 'Wind:  ' + forecast.list[i].wind.speed + '</td><tr></tr><td>' + 'Pressure: ' + forecast.list[i].main.pressure + '</td></tr>';
+                            // });
+                            // console.log(i)
+                                if (i === 0) {
+                                    $('#tbl1').html(trHTML);
+                                }else if (i === 8) {
+                                    $('#tbl2').html(trHTML);
+                                }else if (i === 16) {
+                                    $('#tbl3').html(trHTML);
+                                }
+                        };
+                        //End of loop
+                    })
+
+                    .fail(function (data, status) {
+                        console.log("Failed");
+
+                    });
+
+
+
+            }
+            loadTable();
+
+
+            //Refresh button
+            // $('#refresh').click(function () {
+            //     loadTable();
+            // });
+
+        })();
+    </script>
+    
+</body>
+</html>
+
