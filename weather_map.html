@@ -9,54 +9,90 @@
             width: 100%;
             height: 481px;
         }
+        .layer {
+            background-color: #e7eaeb;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+        }
+
+        .parallax {
+            /* The image used */
+            background: url(https://media.giphy.com/media/GawNJisfOUHV6/source.gif);
+
+            /* Set a specific height */
+            height: 500px;
+
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .opacity-effect {
+            opacity: .9;
+        }
+
     </style>
 </head>
-<body>
-    <h1 id="title">The Weather App</h1>
-    <h2>San Antonio</h2>
-    <div id="latspan" class="">San Antonio</div>
+<body class="parallax">
+    <div id="latspan" class="d-none">San Antonio</div>
     <div id="lngspan" class="d-none">San Antonio</div>
 
-
-    <div  class="container-fluid">
-        <div class="row">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Location</span>
-                </div>
-                <input type="text" id="address" class="form-control" placeholder="Search for..." autofocus>
-                <button id="submitButton" class="btn btn-secondary" type="button">Search</button>
-            </div>
-
-            <!--THREE DAY FORECAST CARDS-->
-            <div class="col-4 py-5">
-                <div class="card text-center">
-                    <div class="card-block">
-                        <h3 class="card-header bg-info">Day 1</h3>
-                        <table id="tbl1" class="insertWeather card-text"></table>
+    <div  class="container-fluid layer opacity-effect">
+        <div class="jumbotron jumbotron-fluid opacity-effect">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-9">
+                        <h1 id="title">Your Weather Application</h1>
+                    </div>
+                    <div class="col-3 text-center">
+                        <h3 id="cityName">San Antonio</h3>
                     </div>
                 </div>
-            </div>
-            <div class="col-4 py-5">
-                <div class="card text-center">
-                    <div class="card-block">
-                        <h3 class="card-header bg-info">Day 2</h3>
-                        <table id="tbl2" class="insertWeather card-text"></table>
+                <div class="row justify-content-center">
+                    <div class="input-group px-3 col-8">
+                        <input type="text" id="address" class="form-control" placeholder="Search for your city..." autofocus>
+                        <button id="submitButton" class="btn btn-secondary" type="button">Search</button>
                     </div>
-                </div>
-            </div>
-            <div class="col-4 py-5">
-                <div class="card text-center">
-                    <div class="card-block">
-                        <h3 class="card-header bg-info">Day 3</h3>
-                        <table id="tbl3" class="insertWeather card-text"></table>
+                    <div class="col-4 pl-5 text-center">
+                        <p id="currentCityWeather"></p>
                     </div>
                 </div>
             </div>
         </div>
-    <div id="map-canvas" class="container-fluid"></div>
-    <!--<input id="address" type="address">-->
-    <!--<button id="search-button">Search Location</button>-->
+
+
+            <!--THREE DAY FORECAST CARDS-->
+        <div class="row justify-content-center">
+            <div class="col-4 py-5 text-center">
+                <div class="card opacity-effect">
+                    <div class="card-block">
+                        <h3 class="card-header bg-info">Day 1</h3>
+                        <table id="tbl1" class="insertWeather card-text table"></table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 py-5 text-center">
+                <div class="card opacity-effect">
+                    <div class="card-block">
+                        <h3 class="card-header bg-info">Day 2</h3>
+                        <table id="tbl2" class="insertWeather card-text table"></table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 py-5 text-center">
+                <div class="card opacity-effect">
+                    <div class="card-block">
+                        <h3 class="card-header bg-info">Day 3</h3>
+                        <table id="tbl3" class="insertWeather card-text table"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="map-canvas" class="container-fluid"></div>
     </div>
 
 
@@ -74,17 +110,19 @@
             // Init geocoder object
             var geocoder = new google.maps.Geocoder();
 
-            var address = {lat:  29.426791, lng: -98.489602};
+            var address = {lat: 29.426791, lng: -98.489602};
 
-            var newAddress="";
+            var newAddress = "";
 
+            var trHTML = '';
 
 
             // Set our map options
             var mapOptions = {
                 // Set the zoom level
-                zoom: 18,
+                zoom: 8,
                 center: address,
+                styles: [{"featureType":"administrative","elementType":"labels.text","stylers":[{"weight":"2"},{"visibility":"on"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"},{"visibility":"on"},{"weight":"2.00"}]},{"featureType":"administrative","elementType":"labels.text.stroke","stylers":[{"weight":"2.00"},{"visibility":"on"}]},{"featureType":"administrative.country","elementType":"labels.text","stylers":[{"visibility":"on"},{"weight":"2"}]},{"featureType":"administrative.province","elementType":"labels.text","stylers":[{"visibility":"on"},{"weight":"2"}]},{"featureType":"administrative.locality","elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"administrative.locality","elementType":"labels.text","stylers":[{"weight":"2"},{"visibility":"on"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"landscape","elementType":"labels.text","stylers":[{"visibility":"on"},{"weight":"2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels.text","stylers":[{"weight":"2"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#c66e4e"}]},{"featureType":"road.highway","elementType":"labels.icon","stylers":[{"visibility":"on"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#a8ad00"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"#5b7f95"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#478ba7"},{"visibility":"on"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#5b7f95"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]}]
             };
 
             // Render the map
@@ -97,62 +135,12 @@
                 map: map,
             });
 
-            var newCity = "";
-
-            // $('#submitButton').click(function(){
-            //     // var lat = $('#newLat').val();
-            //     // var lon = $('#newLon').val();
-            //     newCity = $('#address').val();
-                var trHTML = '';
-
-                    google.maps.event.addListener(map, 'click', function(event) {
-
-                        var lat = (document.getElementById('latspan').innerHTML = event.latLng.lat());
-                        var lng = (document.getElementById('lngspan').innerHTML = event.latLng.lng());
-                        newAddress = {lat: lat, lng: lng};
-                        console.log(newAddress);
-                        placeMarker(event.latLng);
-                        // console.log(latLng)
-
-
-
-                $.get("https://api.openweathermap.org/data/2.5/forecast", {
-                    APPID: "8f5c57daacb4b80dfbaab615e6a89e18",
-                    lat: newAddress.lat,
-                    lon: newAddress.lng,
-                    // q: address,
-                    units: "imperial"
-                }).done(function (forecast) {
-                    console.log(forecast)
-
-
-                    for (var i = 0; i < forecast.list.length; i++) {
-
-                        trHTML = '<tr><td>' + forecast.list[i].main.temp_max + 'º' + '/' + forecast.list[i].main.temp_min + 'º' + '</td></tr><tr><td>' + '<img src="http://openweathermap.org/img/w/' + forecast.list[i].weather[0].icon + '.png">' + '</td><tr></tr><td>' + '<strong>Clouds: </strong>' + forecast.list[i].weather[0].description + '</td><tr></tr><td>'  + '<strong>Humidity: </strong>' + forecast.list[i].main.humidity + '</td><tr></tr><td>' + '<strong>Wind:  </strong>' + forecast.list[i].wind.speed + ' mph' + '</td><tr></tr><td>' + '<strong>Pressure: </strong>' + forecast.list[i].main.pressure + '</td></tr>';
-                        if (i === 0) {
-                            $('#tbl1').html(trHTML);
-                        }else if (i === 8) {
-                            $('#tbl2').html(trHTML);
-                        }else if (i === 16) {
-                            $('#tbl3').html(trHTML);
-                        }
-                    };
-                    //End of loop
-                });
-                    });
-
-
-            //On the button click the contents of the address variable is replaced with the NewAddress. The newAddress should take the contents on address and resubmit it to the geocoder.
-            var searchButton = document.getElementById('submitButton');
-            searchButton.addEventListener('click', listener, false);
 
             function loadTable() {
                 var trHTML = '';
-
             };
 
-
-            // DEFAULT LAT AND LON
+// DEFAULT LAND ON MAP API FUNCTION
 
             $.get("https://api.openweathermap.org/data/2.5/forecast", {
                 APPID: "8f5c57daacb4b80dfbaab615e6a89e18",
@@ -163,13 +151,12 @@
 
 
             }).done(function (forecast) {
-
+                $('#cityName').text(forecast.city.name + ', ' + forecast.city.country);
 
                 for (var i = 0; i < forecast.list.length; i++) {
+                    $('#currentCityWeather').html('<strong>Current Weather: </strong>' + forecast.list[i].main.temp + 'º ' + '<img src="http://openweathermap.org/img/w/' + forecast.list[i].weather[0].icon + '.png">');
 
-                    var trHTML = '<tr><td>' + forecast.list[i].main.temp_max + 'º' + '/' + forecast.list[i].main.temp_min + 'º' + '</td></tr><tr><td>' + '<img src="http://openweathermap.org/img/w/' + forecast.list[i].weather[0].icon + '.png">' + '</td><tr></tr><td>' + '<strong>Clouds: </strong>' + forecast.list[i].weather[0].description + '</td><tr></tr><td>'  + '<strong>Humidity: </strong>' + forecast.list[i].main.humidity + '</td><tr></tr><td>' + '<strong>Wind:  </strong>' + forecast.list[i].wind.speed + ' mph' + '</td><tr></tr><td>' + '<strong>Pressure: </strong>' + forecast.list[i].main.pressure + '</td></tr>';
-                    // });
-                    // console.log(i)
+                    trHTML = '<tr><td>' + forecast.list[i].main.temp_max + 'º' + '/' + forecast.list[i].main.temp_min + 'º' + '</td></tr><tr><td>' + '<img src="http://openweathermap.org/img/w/' + forecast.list[i].weather[0].icon + '.png">' + '</td><tr></tr><td>' + '<strong>Clouds: </strong>' + forecast.list[i].weather[0].description + '</td><tr></tr><td>'  + '<strong>Humidity: </strong>' + forecast.list[i].main.humidity + '</td><tr></tr><td>' + '<strong>Wind:  </strong>' + forecast.list[i].wind.speed + ' mph' + '</td><tr></tr><td>' + '<strong>Pressure: </strong>' + forecast.list[i].main.pressure + '</td></tr>';
                     if (i === 0) {
                         $('#tbl1').html(trHTML);
                     }else if (i === 8) {
@@ -180,25 +167,86 @@
                 };
                 //End of loop
             });
+// END OF DEFAULT FUNCTION^^^^^^^^^^
 
-            loadTable();
+// INPUT SUBMIT BUTTON API FUNCTION
+            $('#submitButton').click(function(event){
+                event.preventDefault();
+                // var lat = $('#newLat').val();
+                // var lon = $('#newLon').val();
+                newAddress = $('#address').val();
+                console.log(newAddress)
+                // placeMarker(event.latLng);
+                listener(newAddress);
+
+                $.get("https://api.openweathermap.org/data/2.5/forecast", {
+                    APPID: "8f5c57daacb4b80dfbaab615e6a89e18",
+                    q: newAddress,
+                    units: "imperial"
+                }).done(function (forecast) {
+                    console.log(forecast)
+                    $('#cityName').text(forecast.city.name + ', ' + forecast.city.country);
 
 
-            // MARKER FUNCTION CALL
-            marker.setMap(map);
+                        for (var i = 0; i < forecast.list.length; i++) {
+                            $('#currentCityWeather').html('<strong>Current Weather: </strong>' + forecast.list[i].main.temp + 'º ' + '<img src="http://openweathermap.org/img/w/' + forecast.list[i].weather[0].icon + '.png">');
+
+                            trHTML = '<tr><td>' + forecast.list[i].main.temp_max + 'º' + '/' + forecast.list[i].main.temp_min + 'º' + '</td></tr><tr><td>' + '<img src="http://openweathermap.org/img/w/' + forecast.list[i].weather[0].icon + '.png">' + '</td><tr></tr><td>' + '<strong>Clouds: </strong>' + forecast.list[i].weather[0].description + '</td><tr></tr><td>'  + '<strong>Humidity: </strong>' + forecast.list[i].main.humidity + '</td><tr></tr><td>' + '<strong>Wind:  </strong>' + forecast.list[i].wind.speed + ' mph' + '</td><tr></tr><td>' + '<strong>Pressure: </strong>' + forecast.list[i].main.pressure + '</td></tr>';
+                            if (i === 0) {
+                                $('#tbl1').html(trHTML);
+                            }else if (i === 8) {
+                                $('#tbl2').html(trHTML);
+                            }else if (i === 16) {
+                                $('#tbl3').html(trHTML);
+                            }
+                                if (forecast.list[i].weather[0].main === "rain") {
+                                    console.log("it's raining!");
+                                }
+                        };
+                        //End of loop
+                    });
+                });
+// ^^^^END OF INPUT SUBMIT BUTTON API FUNCTION^^^^
+
+// CLICK ON GOOGLE MAP API FUNCTION
+                    google.maps.event.addListener(map, 'click', function(event) {
+
+                        var lat = (document.getElementById('latspan').innerHTML = event.latLng.lat());
+                        var lng = (document.getElementById('lngspan').innerHTML = event.latLng.lng());
+                        newAddress = {lat: lat, lng: lng};
+                        console.log(newAddress);
+                        placeMarker(event.latLng);
+
+                        $.get("https://api.openweathermap.org/data/2.5/forecast", {
+                        APPID: "8f5c57daacb4b80dfbaab615e6a89e18",
+                        lat: newAddress.lat,
+                        lon: newAddress.lng,
+                        // q: address,
+                        units: "imperial"
+                    }).done(function (forecast) {
+                        console.log(forecast)
+                        $('#cityName').text(forecast.city.name + ', ' + forecast.city.country);
 
 
-            // google.maps.event.addListener(map, 'click', function(event) {
-            //
-            //     var lat = (document.getElementById('latspan').innerHTML = event.latLng.lat());
-            //     var lng = (document.getElementById('lngspan').innerHTML = event.latLng.lng());
-            //     newAddress = {lat: lat, lng: lng};
-            //     console.log(newAddress);
-            //     placeMarker(event.latLng);
-            //     // console.log(latLng)
-            //
-            // });
+                            for (var i = 0; i < forecast.list.length; i++) {
+                                $('#currentCityWeather').html('<strong>Current Weather: </strong>' + forecast.list[i].main.temp + 'º ' + '<img src="http://openweathermap.org/img/w/' + forecast.list[i].weather[0].icon + '.png">');
 
+                                trHTML = '<tr><td>' + forecast.list[i].main.temp_max + 'º' + '/' + forecast.list[i].main.temp_min + 'º' + '</td></tr><tr><td>' + '<img src="http://openweathermap.org/img/w/' + forecast.list[i].weather[0].icon + '.png">' + '</td><tr></tr><td>' + '<strong>Clouds: </strong>' + forecast.list[i].weather[0].description + '</td><tr></tr><td>'  + '<strong>Humidity: </strong>' + forecast.list[i].main.humidity + '</td><tr></tr><td>' + '<strong>Wind:  </strong>' + forecast.list[i].wind.speed + ' mph' + '</td><tr></tr><td>' + '<strong>Pressure: </strong>' + forecast.list[i].main.pressure + '</td></tr>';
+                                if (i === 0) {
+                                    $('#tbl1').html(trHTML);
+                                }else if (i === 8) {
+                                    $('#tbl2').html(trHTML);
+                                }else if (i === 16) {
+                                    $('#tbl3').html(trHTML);
+                                }
+                            };
+                            //End of loop
+                        });
+                    });
+// ^^^^END OF CLICK ON GOOGLE API FUNCTION^^^^
+
+
+// FUNCTION FOR PLACING MARKER ON MAP WHEN CLICKING ON MAP
             function placeMarker(location) {
 
                 if (marker == null)
@@ -206,13 +254,15 @@
                     marker = new google.maps.Marker({
                         position: location,
                         map: map
-                    }); } else {   marker.setPosition(location); } }
+                    }); console.log(position); } else {   marker.setPosition(location); } }
 
-            function listener() {
+// FUNCTION FOR PLACING MARKER ON MAP WHEN CLICKING ON MAP^^^^^^^^^^^^
+
+// LISTENER FUNCTION FOR CLICK EVENTS
+            function listener(search) {
+
                 //geocoder function from google
-                geocoder.geocode({ "address": newCity }, function(results, status) {
-                    console.log(newCity);
-
+                geocoder.geocode({ "address": newAddress }, function(results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
                         // Rerender the map
                         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
@@ -234,8 +284,9 @@
 
             };
 
+            loadTable();
 
-            // CLOSE MAIN ANONYMOUS FUNCTION
+// CLOSE MAIN ANONYMOUS FUNCTION
         })();
 
     </script>
