@@ -59,4 +59,13 @@ const longestUserEmail = users.reduce(function(longestEmail, user) {
 
 var instructors = users.reduce(function(counter, instructor){
     return counter + ` ${instructor.name}, `;
-}, '');
+}, ',');
+
+var instructorNames = users.reduce((stringMessage, user, index) => {
+
+    debugger
+    if (index === users.length - 1) {
+        return `${stringMessage} ${user.name}.`
+    }
+    return `${stringMessage} ${user.name},`
+},'your instructors are: ')
