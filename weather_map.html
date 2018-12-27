@@ -288,7 +288,7 @@
 
             // CLICK ON GOOGLE MAP OPEN WEATHER API CALL----------------------------------------
 
-            google.maps.event.addListener(map, 'click', function (event) {
+                google.maps.event.addListener(map, 'click', function (event) {
                 $('html, body').animate({scrollTop: $(document).height()}, 'slow');
                 //getting the coordinates from click event and storing them in a var to pass into api call
                 var lat = (document.getElementById('latspan').innerHTML = event.latLng.lat());
@@ -314,9 +314,8 @@
 // ^^^^END OF CLICK ON GOOGLE MAP OPEN WEATHER API CALL^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 // INPUT SUBMIT BUTTON OPEN WEATHER API CALL------------------------------------------------------
-            $('#submitButton').click(function () {
-                // event.preventDefault();
-                // $('html, body').animate({scrollTop: $(document).height()}, 'slow');
+            $('#submitButton').click(function(e) {
+                e.preventDefault();
                 newAddress = $('#address').val();
 
                 $.get("https://api.openweathermap.org/data/2.5/forecast", {
@@ -332,9 +331,6 @@
                         forecast.city.coord.lng = forecast.city.coord.lon;
                         newAddress = forecast.city.coord;
                         delete forecast.city.coord.lon;
-
-                        // Rerender the map
-                        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
                         // Recenter the map over the address
                         map.setCenter(newAddress);

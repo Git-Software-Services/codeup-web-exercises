@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Blog</title>
+    <!-- Latest compiled and minified CSS -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+</head>
+<body>
+
+    <h1 id="title">AJAX BLOG</h1>
+    <script src="js/jquery-2.x-git.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+    <script>
+        $(document).ready(function() {
+            $.ajax("https://swapi.co/api/people/1/")
+                .done(function (people) {
+                $('#title').text(people.name)
+                console.log(people.name);
+            })
+                .fail(function(data, status){
+                    console.log(data);
+
+                })
+                .always(function (){
+                    //a good example is to get rid of a loading page
+                });
+        });
+    </script>
+</body>
+</html>
